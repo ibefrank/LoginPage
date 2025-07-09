@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginPage.MainPage"
+             BackgroundColor="Blue">
+    
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center">
+            <!-- Branding -->
+            <Image Source="logo.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center"/>
+            <Label Text="Welcome Back 👋" FontSize="28" TextColor="White" HorizontalOptions="Center"/>
+            <Label Text="Please login to continue" FontSize="16" TextColor="Gray" HorizontalOptions="Center"/>
+
+            <!-- Email -->
+            <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email" PlaceholderColor="Gray" TextColor="White"/>
+
+            <!-- Password with toggle -->
+            <Grid>
+                <Entry x:Name="passwordEntry"
+               Placeholder="Password"
+               Text="{Binding Password}"
+               IsPassword="{Binding IsPasswordVisible, Converter={StaticResource InverseBoolConverter}}"
+               PlaceholderColor="Gray"
+               TextColor="White"/>
+                <ImageButton Source="{Binding IsPasswordVisible, Converter={StaticResource EyeIconConverter}}"
+                     Command="{Binding TogglePasswordCommand}"
+                     WidthRequest="40"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="End"
+                     VerticalOptions="Center"/>
+            </Grid>
+
+            <!-- Forgot Password -->
+            <Label Text="Forgot Password?" TextColor="LightBlue" FontSize="14" HorizontalOptions="End"/>
+
+            <!-- Login Button -->
+            <Button Text="Login"
+            Command="{Binding LoginCommand}"
+            IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+            BackgroundColor="#1F6FEB"
+            TextColor="White"
+            CornerRadius="10"
+            FontAttributes="Bold"/>
+
+            <!-- OR Divider -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <BoxView Color="Gray" HeightRequest="1" WidthRequest="100" VerticalOptions="Center"/>
+                <Label Text=" OR " TextColor="Gray" FontSize="14"/>
+                <BoxView Color="Gray" HeightRequest="1" WidthRequest="100" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <!-- Social Login -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+                <ImageButton Source="google.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40"/>
+                <ImageButton Source="apple.png" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40"/>
+            </HorizontalStackLayout>
+
+            <!-- Sign up -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Don't have an account?" TextColor="Gray"/>
+                <Label Text=" Sign up" TextColor="LightBlue" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
