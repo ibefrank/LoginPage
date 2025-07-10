@@ -3,7 +3,8 @@
 A sleek and modern **login interface** built with **.NET MAUI** and following the **MVVM architecture**. This project features a clean dark theme, responsive design, and interactive elements like password visibility toggle and social login placeholders — ready to plug into any authentication workflow.
 
 ---
-
+##Functionality
+Structured the login functionality using MVVM architecture. Added LoginPage under Views and LoginViewModel under ViewModel. Integrated basic validation and navigation logic. Prepared the codebase for service injection and future authentication features.
 ## ✨ Features
 
 - Email and Password fields
